@@ -172,7 +172,7 @@ Windows-Specific (3/3): ✅ 100% SUCCESS
 
 ⚡ QUICK START GUIDE
 ===================
-1. Navigate to: C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System\FSOT_Clean_System
+1. Navigate to: FSOT_Clean_System
 2. Run: python main.py
 3. Access CLI interface immediately
 4. Open web interface at: http://127.0.0.1:8000

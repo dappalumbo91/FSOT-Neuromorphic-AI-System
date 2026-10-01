@@ -53,7 +53,7 @@ def __init__(self, base_directory: Optional[str] = None):
 ### **Functionality Test**
 ```
 ✅ File Manager imported successfully
-📁 Base directory: C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System
+📁 Base directory: .
 🗂️ Categories available: 8
 Archive structure created successfully
 ```
