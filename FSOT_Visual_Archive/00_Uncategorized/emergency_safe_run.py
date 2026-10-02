@@ -5,6 +5,12 @@ EMERGENCY SAFE RUN - NO LOOPS
 This script runs your FSOT system safely without any endless loops.
 """
 
+import os as _os
+from pathlib import Path as _Path
+
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+
+
 import sys
 import time
 import signal
@@ -36,14 +42,14 @@ try:
     
     # Test 2: FSOT foundation (most likely to work)
     print("2️⃣ Testing FSOT foundation...")
-    sys.path.insert(0, r"C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System\FSOT_Clean_System")
+    sys.path.insert(0, _os.fspath(_REPO_ROOT / 'FSOT_Clean_System'))
     from fsot_2_0_foundation import FSOTCore, FSOTConstants, FSOTDomain
     core = FSOTCore()
     print(f"✅ FSOT Core: {core.compute_universal_scalar(12, FSOTDomain.AI_TECH):.6f}")
     
     # Test 3: Brain system (from main directory)
     print("3️⃣ Testing brain system...")
-    sys.path.insert(0, r"C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System")
+    sys.path.insert(0, _os.fspath(_REPO_ROOT))
     from brain_system import NeuromorphicBrainSystem
     brain = NeuromorphicBrainSystem()
     print(f"✅ Brain System: {len(brain.regions)} regions")

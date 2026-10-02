@@ -5,6 +5,12 @@ FSOT System Advanced Monitoring & Automation Tools
 Real-time monitoring, performance profiling, and automated management.
 """
 
+import os as _os
+from pathlib import Path as _Path
+
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+
+
 import psutil
 import time
 import json
@@ -294,11 +300,11 @@ class FSATAutomationSuite:
         """Check FSOT-specific components"""
         try:
             # Test FSOT imports
-            sys.path.insert(0, r"C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System\FSOT_Clean_System")
+            sys.path.insert(0, _os.fspath(_REPO_ROOT / 'FSOT_Clean_System'))
             from fsot_2_0_foundation import FSOTCore, FSOTDomain
             
             # Test brain system
-            sys.path.insert(0, r"C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System")
+            sys.path.insert(0, _os.fspath(_REPO_ROOT))
             from brain_system import NeuromorphicBrainSystem
             
             return {
