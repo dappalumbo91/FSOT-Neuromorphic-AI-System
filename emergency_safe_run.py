@@ -5,6 +5,12 @@ EMERGENCY SAFE RUN - NO LOOPS
 This script runs your FSOT system safely without any endless loops.
 """
 
+import os as _os
+from pathlib import Path as _Path
+
+_REPO_ROOT = _Path(__file__).resolve().parent
+
+
 import sys
 import time
 import signal
@@ -36,7 +42,7 @@ try:
     
     # Test 2: FSOT foundation (most likely to work)
     print("2️⃣ Testing FSOT foundation...")
-    sys.path.insert(0, r"C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System")
+    sys.path.insert(0, _os.fspath(_REPO_ROOT))
     from fsot_2_0_foundation import FSOT20Foundation
     core = FSOT20Foundation()
     metrics = core.calculate_consciousness_metrics()
@@ -45,7 +51,7 @@ try:
     # Test 2b: Clean system FSOT core (if available)
     print("2️⃣b Testing Clean System FSOT...")
     try:
-        sys.path.insert(0, r"C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System\FSOT_Clean_System")
+        sys.path.insert(0, _os.fspath(_REPO_ROOT / 'FSOT_Clean_System'))
         from fsot_2_0_foundation import FSOTCore, FSOTDomain
         clean_core = FSOTCore()
         scalar_value = clean_core.compute_universal_scalar(12, FSOTDomain.AI_TECH)
@@ -57,7 +63,7 @@ try:
     
     # Test 3: Brain system (from main directory)
     print("3️⃣ Testing brain system...")
-    sys.path.insert(0, r"C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System")
+    sys.path.insert(0, _os.fspath(_REPO_ROOT))
     from brain_system import NeuromorphicBrainSystem
     brain = NeuromorphicBrainSystem()
     print(f"✅ Brain System: {len(brain.regions)} regions")
@@ -72,7 +78,7 @@ try:
     print("5️⃣ Testing neural network...")
     try:
         # Try importing from Visual Archive
-        sys.path.insert(0, r"C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System\FSOT_Visual_Archive\02_Neural_Networks\Current")
+        sys.path.insert(0, _os.fspath(_REPO_ROOT / 'FSOT_Visual_Archive' / '02_Neural_Networks' / 'Current'))
         import neural_network
         print(f"✅ Neural Network: Module imported from Visual Archive")
     except ImportError:

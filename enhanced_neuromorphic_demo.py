@@ -6,13 +6,19 @@ Enhanced FSOT Neuromorphic Neural Network Demo
 Demonstration of advanced neuromorphic capabilities with FSOT 2.0 compliance.
 """
 
+import os as _os
+from pathlib import Path as _Path
+
+_REPO_ROOT = _Path(__file__).resolve().parent
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
 from pathlib import Path
 
 # Add neural network path
-sys.path.insert(0, r"C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System\FSOT_Visual_Archive\02_Neural_Networks\Current")
+sys.path.insert(0, _os.fspath(_REPO_ROOT / 'FSOT_Visual_Archive' / '02_Neural_Networks' / 'Current'))
 
 try:
     import neural_network as nn

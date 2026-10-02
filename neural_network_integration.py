@@ -151,7 +151,7 @@ import sys
 from pathlib import Path
 
 # Add neural network path
-sys.path.insert(0, r"C:\\Users\\damia\\Desktop\\FSOT-Neuromorphic-AI-System\\FSOT_Visual_Archive\\02_Neural_Networks\\Current")
+sys.path.insert(0, r"FSOT_Visual_Archive/02_Neural_Networks/Current")
 
 try:
     import neural_network as nn

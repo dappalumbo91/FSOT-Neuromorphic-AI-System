@@ -5,6 +5,12 @@ SAFE MAIN - No Endless Loops
 This wrapper prevents endless loops in your FSOT system.
 """
 
+import os as _os
+from pathlib import Path as _Path
+
+_REPO_ROOT = _Path(__file__).resolve().parents[3]
+
+
 import asyncio
 import sys
 import logging
@@ -21,11 +27,11 @@ async def safe_main():
     try:
         # Run health check first
         print("1. Running health check...")
-        sys.path.insert(0, r"C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System")
+        sys.path.insert(0, _os.fspath(_REPO_ROOT))
         
         # Test core components
         print("2. Testing core components...")
-        sys.path.insert(0, r"C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System\FSOT_Clean_System")
+        sys.path.insert(0, _os.fspath(_REPO_ROOT / 'FSOT_Clean_System'))
         from fsot_2_0_foundation import FSOTCore, FSOTDomain
         from main import FSOTHardwiredSystem
         

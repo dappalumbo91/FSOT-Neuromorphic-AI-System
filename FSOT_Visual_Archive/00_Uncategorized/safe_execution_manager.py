@@ -5,6 +5,12 @@ FSOT Safe Execution Manager
 Prevents endless loops and provides safe execution modes for your AI system.
 """
 
+import os as _os
+from pathlib import Path as _Path
+
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+
+
 import asyncio
 import signal
 import sys
@@ -89,7 +95,7 @@ def safe_fsot_test():
         # Test 1: Imports
         print("1️⃣ Testing imports...")
         try:
-            sys.path.insert(0, r"C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System\FSOT_Clean_System")
+            sys.path.insert(0, _os.fspath(_REPO_ROOT / 'FSOT_Clean_System'))
             from fsot_2_0_foundation import FSOTCore, FSOTDomain
             results['fsot_import'] = '✅ Success'
         except Exception as e:
@@ -98,7 +104,7 @@ def safe_fsot_test():
         # Test 2: Brain System
         print("2️⃣ Testing brain system...")
         try:
-            sys.path.insert(0, r"C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System")
+            sys.path.insert(0, _os.fspath(_REPO_ROOT))
             from brain_system import NeuromorphicBrainSystem
             brain = NeuromorphicBrainSystem()
             results['brain_system'] = f'✅ Success: {len(brain.regions)} regions'
@@ -153,7 +159,7 @@ import logging
 from datetime import datetime
 
 # Import your safe execution manager
-sys.path.insert(0, r"C:\\Users\\damia\\Desktop\\FSOT-Neuromorphic-AI-System")
+sys.path.insert(0, r".")
 from advanced_monitoring_tools import FSATAutomationSuite
 
 logger = logging.getLogger(__name__)
@@ -173,7 +179,7 @@ async def safe_main():
             print("\\n🚀 System healthy - proceeding with safe initialization...")
             
             # Import FSOT system safely
-            sys.path.insert(0, r"C:\\Users\\damia\\Desktop\\FSOT-Neuromorphic-AI-System\\FSOT_Clean_System")
+            sys.path.insert(0, r"FSOT_Clean_System")
             from main import FSOTHardwiredSystem
             
             # Create system with timeout
@@ -213,7 +219,7 @@ if __name__ == "__main__":
     print(f"\\nCompleted: {datetime.now()}")
 '''
     
-    with open(r"C:\Users\damia\Desktop\FSOT-Neuromorphic-AI-System\safe_main.py", "w") as f:
+    with open(_os.fspath(_REPO_ROOT / 'safe_main.py'), "w") as f:
         f.write(safe_main_content)
     
     print("✅ Created safe_main.py wrapper")
